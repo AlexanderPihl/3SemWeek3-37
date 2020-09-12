@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Dom Manipulation And Events</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>.mydiv {width: 25px; height: 25px;background-color:yellow; margin:1px;}</style>
+    </head>
+    <body>
+        <div id="outer">
+            <div id="1" class="mydiv"></div>
+            <div id="2" class="mydiv"></div>
+            <div id="3" class="mydiv"></div>
+            <div id="4" class="mydiv"></div>
+            <div id="5" class="mydiv"></div>
+            <div id="6" class="mydiv"></div>
+            <div id="7" class="mydiv"></div>
+            <div id="8" class="mydiv"></div>
+            <div id="9" class="mydiv"></div>
+            <div id="10" class="mydiv"></div>
+        </div>
+        
+        <!--opave c)-->
+        <p id="p1">Click on a color to change my HTML content (innerHTML) to the id og the color you clicked</p>
+        
+        <script>
+            var outer = document.getElementById("outer");
+            outer.onclick = function (e) {
+                console.log("Clicked");
+                var mee = this;
+                var target = e.target;
+                document.getElementById("p1").innerHTML = "You pressed: " + target.id;
+                console.log(mee.id);
+                console.log(target.id);
+            };
+        </script>
+
+<!--    Opgave b)
+            
+        <script>
+            var outer = document.getElementById("outer");
+            outer.onclick = function (e) {
+                console.log("Clicked");
+                var mee = this;
+                var target = e.target;
+                console.log(mee.id);
+                console.log(target.id);
+            };
+        </script>
+-->
+    </body>
+</html>

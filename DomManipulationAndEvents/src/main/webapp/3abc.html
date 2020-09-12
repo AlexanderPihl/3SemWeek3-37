@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Dom Manipulation And Events</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body onload="addUlList()">
+        <div></div>
+
+        <form onsubmit="addName(); return false">
+            <label for="fname">Indtast fornavn</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <input type="submit" value="Submit">
+        </form> 
+        <button onclick="removeFirst()">Remove first name</button>
+        <button onclick="removeLast()">Remove last name</button>
+
+        <p></p>
+
+    
+    <script>
+        
+        var names = ["Gunner", "Lone", "Gert", "Annette", "Torben", "Vivi"];
+       
+            function addUlList() {
+            var ulElement = document.createElement("ul");
+            var namesToHtmlList = "<ul id=\"ulListe\">" + names.map(function (name) {
+                return "<li>" + name + "</li>";
+            }).join("") + "</ul>";
+            ulElement.innerHTML = namesToHtmlList;
+            document.body.appendChild(ulElement);
+        }
+
+        function addName() {
+            var nytNavn = document.getElementById("fname").value;
+            names.push(nytNavn);
+            var ul = document.getElementById("ulListe")
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(nytNavn));
+            ul.appendChild(li);
+        }
+
+        function removeFirst() {
+            names.shift();
+            var liste = document.getElementById("ulListe");
+            liste.removeChild(liste.firstChild);
+        }
+
+        function removeLast() {
+            names.pop();
+            var liste = document.getElementById("ulListe");
+            liste.removeChild(liste.lastElementChild);
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Dom Manipulation And Events</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="1">Div 1</div>
+        <div id="2">Div 2</div>
+        <div id="3">Div 3</div>
+
+        <script>
+       
+            var divs = document.getElementsByTagName("div");
+            
+            for(var i=0; i < divs.length; i++){
+                divs[i].style.backgroundColor="red";
+            }
+  
+        </script>
+    </body>
+</html>
